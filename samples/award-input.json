@@ -1,0 +1,9 @@
+{
+  "note": "Fictional form values, not an issued certificate. Use npm run demo for live valid/tampered certificates.",
+  "universityName": "Northbridge Demonstration University",
+  "studentName": "Alex Morgan",
+  "studentNumber": "DEMO-2026-001",
+  "qualification": "MSc in Computer Science",
+  "classification": "Distinction",
+  "issuedOn": "2026-09-03"
+}

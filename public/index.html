@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CertiLedger | Academic certificate registry</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+  <script type="importmap">{"imports":{"ethers":"/vendor/ethers.js"}}</script>
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/" class="brand"><span class="brand-mark" aria-hidden="true">CL</span><span>CertiLedger<small>Academic certificate registry</small></span></a>
+    <div class="account-controls"><label for="account">Demo account</label><select id="account"><option value="">Employer / public verifier</option></select><button id="connect" class="secondary">Connect wallet</button></div>
+  </header>
+  <div class="environment"><span>LOCAL DEMONSTRATION · SYNTHETIC RECORDS</span><span id="network">Connecting to registry…</span></div>
+  <nav class="tabs" aria-label="Main navigation">
+    <button data-view="verify" aria-current="page">Verify certificate</button><button data-view="registry">Certificate registry</button><button data-view="issue">Issue certificate</button><button data-view="register">Registration</button><button data-view="admin">Administration</button>
+  </nav>
+  <main>
+    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <section id="view-verify" class="view">
+      <div class="page-heading"><div><p class="eyebrow">FOR EMPLOYERS & INSTITUTIONS</p><h1>Check a qualification.</h1><p>Compare a certificate with its university's blockchain record.</p></div><span class="pill">No wallet required</span></div>
+      <div class="verify-grid">
+        <div class="panel">
+          <h2>Verify the original file</h2><p>Upload the CertiLedger JSON certificate received from the student.</p>
+          <form id="verify-file-form"><label class="file-area" for="verify-file"><span class="file-symbol" aria-hidden="true">↥</span><strong>Choose certificate JSON</strong><span>Every certificate field is checked for changes.</span><input type="file" id="verify-file" accept=".json,application/json" required></label><button type="submit">Verify file</button></form>
+          <div class="divider">OR LOOK UP A RECORD</div>
+          <form id="lookup-form"><label for="lookup-id">Certificate ID</label><input id="lookup-id" placeholder="0x…" required spellcheck="false"><button type="submit" class="secondary">Look up & verify stored certificate</button></form>
+        </div>
+        <div id="verification-result" class="panel result-panel" aria-live="polite"><p class="eyebrow">VERIFICATION RESULT</p><h2>Ready to verify</h2><p>A result will show the issuing university, qualification, integrity check, and current revocation status.</p><div class="explanation"><strong>What a QR code proves</strong><p>A QR code locates the registered certificate. Compare its displayed details with the paper copy, or upload the original JSON to check that file.</p></div></div>
+      </div>
+    </section>
+    <section id="view-registry" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">REGISTERED CREDENTIALS</p><h1>Certificate registry</h1><p>Download, print, or check a certificate's latest status.</p></div><button id="refresh-registry" class="secondary">Refresh</button></div>
+      <div id="registry-stats" class="stats"></div><div id="certificates" class="certificate-list"></div><button id="more-records" class="secondary" hidden>Load next 25</button>
+      <details class="panel recovery"><summary>Recover an issued certificate's delivery copy</summary><p>If issuance succeeded but publication failed, upload the original JSON saved before issuance. Its exact hash must already exist on the blockchain.</p><form id="recover-form"><label for="recover-file">Original certificate JSON</label><input id="recover-file" type="file" accept=".json" required><button>Publish matching certificate</button></form></details>
+    </section>
+    <section id="view-issue" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">UNIVERSITY WORKSPACE</p><h1>Issue a certificate</h1><p>Your wallet must belong to an approved university.</p></div></div>
+      <div class="two-column"><form id="issue-form" class="panel"><h2>Qualification details</h2><label for="student-address">Registered student wallet</label><input id="student-address" placeholder="0x…" required spellcheck="false"><div class="form-row"><div><label for="student-name">Student full name</label><input id="student-name" required maxlength="120" placeholder="Alex Morgan"></div><div><label for="student-number">Student number</label><input id="student-number" required maxlength="80" placeholder="DEMO-2026-001"></div></div><label for="qualification">Qualification</label><input id="qualification" required maxlength="180" placeholder="MSc in Computer Science"><div class="form-row"><div><label for="classification">Classification / award</label><input id="classification" required maxlength="80" placeholder="Distinction"></div><div><label for="issued-on">Issue date</label><input id="issued-on" type="date" required></div></div><p class="muted">The delivery copy contains the student's name and qualification. Use fictional details for this local demonstration.</p><button type="submit">Issue & publish certificate</button></form><aside class="panel"><h2>Issuance checklist</h2><ol class="steps"><li>Register the university wallet.</li><li>Have the administrator approve it.</li><li>Have the student register their wallet.</li><li>Enter and check the award details.</li><li>Keep the downloaded JSON certificate.</li></ol><p>The document is downloaded before the transaction starts. Keep it if publication is interrupted; the registry recovery tool can publish it later.</p><div id="issue-result" aria-live="polite"></div></aside></div>
+    </section>
+    <section id="view-register" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">JOIN THE REGISTRY</p><h1>Registration</h1><p id="selected-wallet">Select a demo account or connect your wallet.</p></div></div>
+      <div class="two-column"><form id="university-form" class="panel"><h2>University</h2><p>Register your institution, then request administrator approval.</p><label for="university-name">University name</label><input id="university-name" maxlength="120" placeholder="Northbridge Demonstration University" required><button>Register university</button></form><form id="student-form" class="panel"><h2>Student</h2><p>Register a wallet to receive certificates. A salted commitment is stored on the blockchain.</p><label for="registration-number">Student number</label><input id="registration-number" maxlength="80" placeholder="DEMO-2026-001" required><button>Register student</button></form></div>
+      <p class="muted">Registration binds an account to a role. Identity checks and university accreditation must be performed outside this demonstration.</p>
+    </section>
+    <section id="view-admin" class="view" hidden>
+      <div class="page-heading"><div><p class="eyebrow">REGISTRY OVERSIGHT</p><h1>Administration</h1><p>Approve universities, review registrations, and inspect blockchain events.</p></div><button id="refresh-admin" class="secondary">Refresh</button></div>
+      <div id="admin-stats" class="stats"></div><div class="panel table-wrap"><h2>Universities</h2><table><thead><tr><th>Institution</th><th>Wallet</th><th>Status</th><th>Action</th></tr></thead><tbody id="universities"></tbody></table><p class="muted">Only the administrator can change approval. Suspension blocks new issuance and flags existing certificates until approval is restored.</p></div><div class="panel"><h2>Recent blockchain events</h2><div id="events"></div></div>
+    </section>
+  </main>
+  <footer><span>CertiLedger · Assignment 2</span><span id="registry-address"></span></footer>
+</body>
+</html>

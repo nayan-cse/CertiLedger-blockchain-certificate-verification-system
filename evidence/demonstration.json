@@ -1,0 +1,92 @@
+{
+  "deployment": {
+    "chainId": 31337,
+    "address": "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+    "administrator": "0x90F8bf6A479f320ead074411a4B0e7944Ea8c9C1",
+    "transactionHash": "0x7b54194b06c0348d0d926a9a79b6b17ba14682f0d34ac44cb7be7f5b7c1a85d3",
+    "blockNumber": 1,
+    "gasUsed": "1049765",
+    "gasPriceWei": "2000000000",
+    "feeWei": "2099530000000000",
+    "latencyMs": 281.47954200000004,
+    "compiler": "0.8.30+commit.73712a01.Emscripten.clang",
+    "sourceHash": "1b9429f3bd7df541f5f2d0536e63ef920c63163f4cc5a8f28f53cb9c664bf857"
+  },
+  "sample": {
+    "schema": "CertiLedger/1",
+    "chainId": 31337,
+    "registry": "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+    "certificateId": "0xba8dfd2ae1e3bcf7a7a6cfd86652083798180a8b5f9bc9ab1a518e0124a45241",
+    "university": "0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0",
+    "universityName": "Demonstration University 1",
+    "student": "0x610Bb1573d1046FCb8A70Bbbd395754cD57C2b60",
+    "studentName": "Synthetic Student 31",
+    "studentNumber": "DEMO-0031",
+    "qualification": "MSc in Computer Science",
+    "classification": "Distinction",
+    "issuedOn": "2026-09-03"
+  },
+  "qrUrl": "http://localhost:3000/verify?id=0xba8dfd2ae1e3bcf7a7a6cfd86652083798180a8b5f9bc9ab1a518e0124a45241&chain=31337&registry=0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+  "before": {
+    "status": "VALID",
+    "message": "Authentic certificate",
+    "hash": "0x880ddc513d59daaa6bd6e77b4f79304e67de2e2c4067d1e2034aea98dd9514de",
+    "blockNumber": 53,
+    "record": {
+      "documentHash": "0x880ddc513d59daaa6bd6e77b4f79304e67de2e2c4067d1e2034aea98dd9514de",
+      "issuer": "0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0",
+      "student": "0x610Bb1573d1046FCb8A70Bbbd395754cD57C2b60",
+      "issuedAt": 1788444657,
+      "revokedAt": 0,
+      "revocationReasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "contentVerified": true,
+    "verificationMs": 57.84917000000132
+  },
+  "tampered": {
+    "status": "ALTERED",
+    "message": "Certificate has been altered",
+    "hash": "0xcabec60862c743e18ff9459b88977f812b9242fc4805f52b3b36c21f9a476f42",
+    "blockNumber": 53,
+    "record": {
+      "documentHash": "0x880ddc513d59daaa6bd6e77b4f79304e67de2e2c4067d1e2034aea98dd9514de",
+      "issuer": "0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0",
+      "student": "0x610Bb1573d1046FCb8A70Bbbd395754cD57C2b60",
+      "issuedAt": 1788444657,
+      "revokedAt": 0,
+      "revocationReasonHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "contentVerified": false,
+    "verificationMs": 28.71074800000133
+  },
+  "revoke": {
+    "kind": "revocation",
+    "scenario": "workflow",
+    "transactionHash": "0x3753483c4ad1da0b60a1d0c52f6af06acec8d149867cf56d2e35f4e477800440",
+    "blockNumber": 54,
+    "gasUsed": "93178",
+    "gasPriceWei": "2000000000",
+    "feeWei": "186356000000000",
+    "submissionMs": 61.85023699999874,
+    "confirmationWaitMs": 164.0327529999995,
+    "transactionLatencyMs": 225.88298999999824,
+    "success": true
+  },
+  "after": {
+    "status": "REVOKED",
+    "message": "Certificate revoked",
+    "hash": "0x880ddc513d59daaa6bd6e77b4f79304e67de2e2c4067d1e2034aea98dd9514de",
+    "blockNumber": 54,
+    "record": {
+      "documentHash": "0x880ddc513d59daaa6bd6e77b4f79304e67de2e2c4067d1e2034aea98dd9514de",
+      "issuer": "0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0",
+      "student": "0x610Bb1573d1046FCb8A70Bbbd395754cD57C2b60",
+      "issuedAt": 1788444657,
+      "revokedAt": 1788444658,
+      "revocationReasonHash": "0xdf4751492d53caf28d2b15771942c5750f0ab7ffd60b9c5e2716f7032432056b"
+    },
+    "contentVerified": true,
+    "verificationMs": 44.71658899999966
+  },
+  "note": "An isolated evaluation chain. Historical sample files are not registered in a fresh npm start chain."
+}

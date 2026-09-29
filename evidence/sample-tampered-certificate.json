@@ -1,0 +1,14 @@
+{
+  "schema": "CertiLedger/1",
+  "chainId": 31337,
+  "registry": "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+  "certificateId": "0xba8dfd2ae1e3bcf7a7a6cfd86652083798180a8b5f9bc9ab1a518e0124a45241",
+  "university": "0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0",
+  "universityName": "Demonstration University 1",
+  "student": "0x610Bb1573d1046FCb8A70Bbbd395754cD57C2b60",
+  "studentName": "Synthetic Student 31",
+  "studentNumber": "DEMO-0031",
+  "qualification": "PhD in Computer Science",
+  "classification": "Distinction",
+  "issuedOn": "2026-09-03"
+}

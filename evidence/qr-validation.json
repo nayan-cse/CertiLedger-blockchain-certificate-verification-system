@@ -1,0 +1,8 @@
+{
+  "executedAt": "2026-09-03T14:16:55.595600+00:00",
+  "decoder": "OpenCV 4.11.0 QRCodeDetector",
+  "image": "sample-qr.png",
+  "decodedUrl": "http://localhost:3000/verify?id=0xba8dfd2ae1e3bcf7a7a6cfd86652083798180a8b5f9bc9ab1a518e0124a45241&chain=31337&registry=0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+  "matchesExpected": true,
+  "scope": "Generated QR image decoded in software; phone camera not tested."
+}

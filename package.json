@@ -1,0 +1,26 @@
+{
+  "name": "certiledger-assignment-2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Blockchain academic certificate issuance and verification - Assignment 2",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "compile": "node scripts/compile.mjs",
+    "test": "node --test --test-concurrency=1 tests/system.test.mjs",
+    "benchmark": "node scripts/benchmark.mjs",
+    "evaluate": "node scripts/evaluate.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "verify": "node scripts/verify.mjs",
+    "demo": "node scripts/demo.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "ethers": "6.15.0",
+    "express": "5.1.0",
+    "ganache": "7.9.2",
+    "qrcode": "1.5.4",
+    "solc": "0.8.30"
+  }
+}

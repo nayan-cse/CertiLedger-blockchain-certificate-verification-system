@@ -1,0 +1,9 @@
+{
+  "command": "npm ci --no-audit --no-fund",
+  "exitCode": 0,
+  "packagesInstalled": 451,
+  "node": "v24.19.0",
+  "platform": "Linux x64",
+  "cleanDirectory": true,
+  "notes": "No pre-existing node_modules. Lock normalized to avoid erroneous mandatory macOS-only bundled fsevents entry. Windows execution not tested."
+}

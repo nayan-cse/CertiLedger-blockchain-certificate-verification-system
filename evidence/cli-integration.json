@@ -1,0 +1,46 @@
+{
+  "executedAt": "2026-09-03T14:10:05.232Z",
+  "passed": true,
+  "results": [
+    {
+      "script": "scripts/demo.mjs",
+      "args": [],
+      "exitCode": 0,
+      "stdout": "Created one LIVE synthetic certificate.\nValid JSON: data/demo/certificate-valid.json\nTampered JSON: data/demo/certificate-tampered.json\nVerification URL: http://localhost:44173/verify?id=0xd7d1af5ef139e8b52471c480a1bf0c59ebc96b74e00e6bbbf6cb49b230f71a4c&chain=31337&registry=0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab\nTransaction: 0x4222646acbe5f7e508155fff70a95c415c4776ebba76713bfba8bf9d34923bab\nChecks: VALID / ALTERED\nTo demonstrate revocation: select University A, open Certificate registry, and choose Revoke.\n",
+      "stderr": "",
+      "elapsedMs": 2338.513583
+    },
+    {
+      "script": "scripts/verify.mjs",
+      "args": [
+        "data/demo/certificate-valid.json",
+        "--rpc",
+        "http://127.0.0.1:32937",
+        "--registry",
+        "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+        "--chain",
+        "31337"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"VALID\",\n  \"message\": \"Authentic certificate\",\n  \"hash\": \"0x55d23ee111fb200ef12895661805777991a8b27edc15da36fe6483438ddc0acc\",\n  \"blockNumber\": 11,\n  \"record\": {\n    \"documentHash\": \"0x55d23ee111fb200ef12895661805777991a8b27edc15da36fe6483438ddc0acc\",\n    \"issuer\": \"0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0\",\n    \"student\": \"0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b\",\n    \"issuedAt\": 1788444603,\n    \"revokedAt\": 0,\n    \"revocationReasonHash\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"contentVerified\": true,\n  \"verificationMs\": 116.63598300000001\n}\n",
+      "stderr": "",
+      "elapsedMs": 764.6425660000004
+    },
+    {
+      "script": "scripts/verify.mjs",
+      "args": [
+        "data/demo/certificate-tampered.json",
+        "--rpc",
+        "http://127.0.0.1:32937",
+        "--registry",
+        "0xe78A0F7E598Cc8b0Bb87894B0F60dD2a88d6a8Ab",
+        "--chain",
+        "31337"
+      ],
+      "exitCode": 2,
+      "stdout": "{\n  \"status\": \"ALTERED\",\n  \"message\": \"Certificate has been altered\",\n  \"hash\": \"0x275e00190654471810e667c190b4f54bc3940761afb7bc22f68cbbc78beb8d81\",\n  \"blockNumber\": 14,\n  \"record\": {\n    \"documentHash\": \"0x55d23ee111fb200ef12895661805777991a8b27edc15da36fe6483438ddc0acc\",\n    \"issuer\": \"0xFFcf8FDEE72ac11b5c542428B35EEF5769C409f0\",\n    \"student\": \"0x22d491Bde2303f2f43325b2108D26f1eAbA1e32b\",\n    \"issuedAt\": 1788444603,\n    \"revokedAt\": 0,\n    \"revocationReasonHash\": \"0x0000000000000000000000000000000000000000000000000000000000000000\"\n  },\n  \"contentVerified\": false,\n  \"verificationMs\": 60.685719000000006\n}\n",
+      "stderr": "",
+      "elapsedMs": 826.2863369999995
+    }
+  ]
+}
