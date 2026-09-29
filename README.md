@@ -153,7 +153,3 @@ Do not delete `data` or `package-lock.json`. Extract into a short writable path 
 **Contract source changed:** the runtime refuses to reuse an incompatible deployment. Keep old data intact and choose a new `DATA_DIR` for a fresh chain, or restore matching source. Back up the whole stopped `data/` folder before experimenting.
 
 **Browser wallet (optional):** configure chain 31337, currency ETH, RPC `http://127.0.0.1:8545`; connect using the button. Use the built-in demo selector for the easiest workflow. External wallets need local test ETH and must register their own address; importing a predictable demo key is not suitable for real networks.
-
-## Submission
-
-The project and `docs/Assignment_2_Report.pdf` address the attached Assignment 2. The report is within 15 pages. Add your name/student ID before printing. No video is included, as requested. `docs/VIVA_GUIDE.md` helps you explain the implementation; review the code and reproduce the demo yourself before presenting.
